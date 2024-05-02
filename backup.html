@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Travel Crud operation</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Grandstander:wght@400;600&family=Handlee&family=Inconsolata:wght@700;800;900&family=Inder&family=Inika:wght@700&family=Inria+Sans:ital,wght@1,300&family=Inter+Tight:wght@600;700&family=Inter:wght@500;600;700&family=JetBrains+Mono:wght@800&family=League+Spartan:wght@200;400&family=Libre+Franklin:wght@500&family=Poppins:wght@500&family=Spectral+SC&family=Spectral:wght@200;300;400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Grandstander:wght@400;600&family=Handlee&family=Inconsolata:wght@700;800;900&family=Inder&family=Inika:wght@700&family=Inria+Sans:ital,wght@1,300&family=Inter+Tight:wght@600;700&family=Inter:wght@500;600;700&family=JetBrains+Mono:wght@800&family=League+Spartan:wght@200;400&family=Libre+Franklin:wght@500&family=Poppins:wght@500&family=Roboto+Slab:wght@500&family=Spectral+SC&family=Spectral:wght@200;300;400;600&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+    <div class="registerdiv">
+        <h1 class="travel">TRAIN BOOKING</h1>
+        <P class="explore">To Travel is to take a journey into yourself</P>
+        <button id="click">Click Here!</button>
+        
+        <ul class="todo"></ul>
+    </div>
+
+    <form action="" class="firstdiv">
+        <div>
+         <p class="book">BOOK YOUR TICKETS</p>
+        </div>
+        <div >
+            <label class="name" for="">Enter your name</label >
+            <input type="text" id="firstname">
+            <h1 id="output"></h1>
+  
+        </div>
+        <div>
+            <label class="email" for="">Email</label>
+            <input type="text" id="firstemail">
+            <h1 id="output1"></h1>
+        </div>
+       
+        <div>
+            <label class="date" for="">Date</label>
+            <input type="date" id="firstdate">
+            <h1 id="output3"></h1>
+        </div>
+        <div>
+            <label class="passenger" for="">No.of Person</label>
+            <input type="number" id="firstpassengers">
+            <h1 id="output4"></h1>
+        </div>
+        <div>
+            <label class="start" for="">From</label>
+            <input type="text" id="firststart">
+            <h1 id="output5"></h1>
+        </div>
+        <div>
+            <label class="end" for="">To</label>
+            <input type="text" id="firstend">
+            <h1 id="output6"></h1>
+        </div>
+
+        <div>
+            <label class="address" for="">Address</label>
+            <input type="text" id="address">
+            <h1 id="output2"></h1>
+        </div>
+
+
+        <button id="btn1">Submit</button>
+       
+</form>
+
+
+
+<script>
+    // firstdiv
+                 let name1 = document.getElementById("firstname");
+                 let email1 = document.getElementById("firstemail");
+                 let Date1 = document.getElementById("firstdate");
+                 let passengers1 = document.getElementById("firstpassengers");
+                 let starting1 = document.getElementById("firststart");
+                 let ending1 = document.getElementById("firstend");
+                 let address = document.getElementById("address");
+                 let click = document.getElementById("click");
+                 let buuton1 = document.getElementById("btn1");
+                 let errormessage = document.getElementById("output");
+                 let firstdivi = document.querySelector(".firstdiv");
+                 let todoul = document.querySelector(".todo");
+                 let registerdivi = document.querySelector(".registerdiv");
+
+                 
+
+                 let errormessage1 = document.getElementById("output1");
+                 let errormessage2 = document.getElementById("output2");
+                 let errormessage3 = document.getElementById("output3");
+                 let errormessage4 = document.getElementById("output4");
+                 let errormessage5 = document.getElementById("output5");
+                 let errormessage6 = document.getElementById("output6");
+              
+                
+                 firstdivi.style.display="none";
+                
+
+                 click.addEventListener("click",registerfunction);
+                 // new code
+                 name1.addEventListener("change",namval);
+                 function namval(){
+                    if (name1.value =="" || name1.value == undefined || name1.value == null){
+                        errormessage.innerHTML =" please enter your name";
+                        return false;
+                    }else{
+                    errormessage.innerHTML ="";
+                    }
+                 }
+                 email1.addEventListener("change",emailval);
+                 function emailval(){
+                    if (email1.value =="" || email1.value == undefined || email1.value == null){
+                        errormessage1.innerHTML ="please enter your email";
+                        return false;
+                    }else{
+                    errormessage1.innerHTML ="";
+                    }
+                 }
+                 address.addEventListener("change",addressval);
+                 function addressval(){
+                    if (address.value =="" || address.value == undefined || address.value == null){
+                        errormessage2.innerHTML ="please enter your address";
+                        return false;
+                    }else{
+                    errormessage2.innerHTML ="";
+                    }
+                 }
+                 Date1.addEventListener("change", dateval);
+                 function dateval(){
+                    if (Date1.value =="" || Date1.value == undefined || Date1.value == null){
+                        errormessage3.innerHTML ="please enter your date";
+                        return false;
+                    }else{
+                    errormessage3.innerHTML ="";
+                    }
+                 }
+                 passengers1.addEventListener("change", passengerval);
+                 function passengerval(){
+                    if (passengers1.value =="" || passengers1.value == undefined || passengers1.value == null){
+                        errormessage4.innerHTML ="please enter your passenger";
+                        return false;
+                    }else{
+                    errormessage4.innerHTML ="";
+                    }
+                 }
+                 starting1.addEventListener("change", startval);
+                 function startval(){
+                    if (starting1.value =="" || starting1.value == undefined || starting1.value == null){
+                        errormessage5.innerHTML ="please enter your pickup point";
+                        return false;
+                    }else{
+                    errormessage5.innerHTML ="";
+                    }
+                 }
+                 ending1.addEventListener("change", endval);
+                 function endval(){
+                    if (ending1.value =="" || ending1.value == undefined || ending1.value == null){
+                        errormessage6.innerHTML ="please enter your destination";
+                        return false;
+                    }else{
+                    errormessage6.innerHTML ="";
+                    }
+                 }
+
+// end
+
+                 function registerfunction(){
+                    firstdivi.style.display="block";
+                    registerdivi.style.display="none";
+                 }
+                 
+                 buuton1.addEventListener("click", secondivision);
+                 
+
+                 function secondivision(event){
+                     event.preventDefault();
+                                         
+                    if (name1.value =="" || name1.value == undefined || name1.value == null){
+                        errormessage.innerHTML ="please enter your name";
+                        errormessage.classList.add("ik");
+                        return false;
+                    } else if (email1.value =="" || email1.value == undefined || email1.value == null){
+                        errormessage1.innerHTML ="please enter your email";
+                        errormessage1.classList.add("ik");
+                        return false;
+                     }
+                    
+                     else if (Date1.value =="" || Date1.value == undefined || Date1.value == null){
+                        errormessage3.innerHTML ="please enter your date";
+                        errormessage3.classList.add("ik");
+                        return false;
+                     }else if (passengers1.value =="" || passengers1.value == undefined || passengers1.value == null){
+                        errormessage4.innerHTML ="please enter your date";
+                        errormessage4.classList.add("ik");
+                        return false;
+                     }else if (starting1.value =="" || starting1.value == undefined || starting1.value == null){
+                        errormessage5.innerHTML ="please enter your date";
+                        errormessage5.classList.add("ik");
+                        return false;
+                     }else if (ending1.value =="" || ending1.value == undefined || ending1.value == null){
+                        errormessage6.innerHTML ="please enter your date";
+                        errormessage6.classList.add("ik");
+                        return false;
+                     } 
+                     else if (address.value =="" || address.value == undefined || address.value == null){
+                        errormessage2.innerHTML ="please enter your address";
+                        errormessage2.classList.add("ik");
+                        return false;
+                     }                    
+                    else{
+                        registerdivi.style.display="block";
+                    
+                    let newdiv = document.createElement("div");
+                    todoul.appendChild(newdiv);
+
+
+                    let name2lable = document.createElement("label");
+                    name2lable.innerHTML="Name";
+                    name2lable.classList.add("movein1")
+                    newdiv.appendChild(name2lable)
+                    
+                    let name2 = document.createElement("input");
+                    name2.value=name1.value;
+                    name2.setAttribute("readonly","readonly");
+                    name2.classList.add("moveon")
+                    newdiv.appendChild(name2);
+                    
+                    let email2lable = document.createElement("label");
+                    email2lable.innerHTML="Email";
+                    email2lable.classList.add("movein2")
+                    newdiv.appendChild(email2lable)
+                   
+
+                     let email2 = document.createElement("input");
+                     email2.value=email1.value;
+                     email2.setAttribute("readonly","readonly");
+                     email2.classList.add("moveon1")
+                     newdiv.appendChild(email2);
+
+                   
+                     let date2lable = document.createElement("label");
+                    date2lable.innerHTML="Date";
+                    date2lable.classList.add("movein4")
+                    newdiv.appendChild(date2lable)
+
+                     let Date2 = document.createElement("input");
+                     Date2.value=Date1.value;
+                     Date2.setAttribute("readonly","readonly");
+                     Date2.classList.add("moveon3")
+                     newdiv.appendChild(Date2);
+
+                     let passenger2lable = document.createElement("label");
+                    passenger2lable.innerHTML="Passenger";
+                    passenger2lable.classList.add("movein5")
+                    newdiv.appendChild(passenger2lable)
+
+                     let passengers2 = document.createElement("input");
+                     passengers2.value=passengers1.value;
+                     passengers2.setAttribute("readonly","readonly");
+                     passengers2.classList.add("moveon4")
+                     newdiv.appendChild(passengers2);
+
+                     let starting2lable = document.createElement("label");
+                    starting2lable.innerHTML="Starting";
+                    starting2lable.classList.add("movein6")
+                    newdiv.appendChild(starting2lable)
+
+                     let starting2 = document.createElement("input");
+                     starting2.value=starting1.value;
+                     starting2.setAttribute("readonly","readonly");
+                     starting2.classList.add("moveon5")
+                     newdiv.appendChild(starting2);
+
+                     let ending2lable = document.createElement("label");
+                     ending2lable.innerHTML=" End";
+                     ending2lable.classList.add("movein7")
+                    newdiv.appendChild(ending2lable)
+
+                     let ending2 = document.createElement("input");
+                     ending2.value=ending1.value;
+                     ending2.setAttribute("readonly","readonly");
+                     ending2.classList.add("moveon6")
+                     newdiv.appendChild(ending2);
+
+
+                     let address2lable = document.createElement("label");
+                     address2lable.innerHTML=" Address";
+                     address2lable.classList.add("movein8")
+                    newdiv.appendChild(address2lable)
+
+                     let address2 = document.createElement("input");
+                     address2.value=ending1.value;
+                     address2.setAttribute("readonly","readonly");
+                     address2.classList.add("moveon8")
+                     newdiv.appendChild(address2);
+
+                     
+
+                     let btn2 = document.createElement("button");
+                     btn2.classList.add("moveon")
+                     btn2.innerHTML="edit";
+                     btn2.classList.add("sma1")
+                     newdiv.appendChild(btn2);
+
+                     let btn3 = document.createElement("button");
+                     btn3.innerHTML="save";
+                     btn3.classList.add("sma2")
+                     newdiv.appendChild(btn3);
+
+
+                     let btn4 = document.createElement("button");
+                     btn4.innerHTML="delete";
+                     btn4.classList.add("sma3")
+                     newdiv.appendChild(btn4);
+
+                     firstdivi.style.display="none";
+
+                     name1.value="";
+                     email1.value="";
+                     address.value="";
+                     Date1.value="";
+
+                     passengers1.value="";
+                     starting1.value="";
+                     ending1.value="";
+                     name1.value="";
+                     name1.value="";
+                     name1.value="";
+                     btn2.addEventListener("click",editfunction);
+                     function editfunction(){
+
+                        name2.type="text";
+                        name2.removeAttribute("readonly","readonly");
+                        newdiv.appendChild(name2lable);
+                        newdiv.appendChild(name2);
+
+                        email2.removeAttribute("readonly","readonly");
+                        newdiv.appendChild(email2lable);
+                        newdiv.appendChild(email2);
+
+                       
+                        Date2.removeAttribute("readonly","readonly");
+                        newdiv.appendChild(date2lable);
+                        newdiv.appendChild(Date2);
+
+                        passengers2.removeAttribute("readonly","readonly");
+                        newdiv.appendChild(passenger2lable);
+                        newdiv.appendChild(passengers2);
+
+                        starting2.removeAttribute("readonly","readonly");
+                        newdiv.appendChild(starting2lable);
+                        newdiv.appendChild(starting2);
+
+                        ending2.removeAttribute("readonly","readonly");
+                        newdiv.appendChild(ending2lable);
+                        newdiv.appendChild(ending2);
+
+                        address2.removeAttribute("readonly","readonly");
+                        newdiv.appendChild(address2lable);
+                        newdiv.appendChild(address2);
+
+
+
+
+
+                       newdiv.appendChild(btn2);
+                       newdiv.appendChild(btn3);
+                       newdiv.appendChild(btn4);
+
+
+
+
+
+                     
+                  }
+                  btn3.addEventListener("click",savefunction);
+                     function savefunction(){
+
+                        name2.setAttribute("readonly","readonly");
+                     email2.setAttribute("readonly","readonly");
+                     address2.setAttribute("readonly","readonly");
+                     Date2.setAttribute("readonly","readonly");
+                     passengers2.setAttribute("readonly","readonly");
+                     starting2.setAttribute("readonly","readonly");
+                     ending2.setAttribute("readonly","readonly");
+                     }
+
+
+                     btn4.addEventListener("click",deletefunction);
+                     function deletefunction(){
+                        newdiv.style.display="none";
+                        
+                     }
+                     }
+                    
+                 }
+
+
+
+
+</script>
+    
+</body>
+</html>
